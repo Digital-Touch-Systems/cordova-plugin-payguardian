@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<plugin id="com.bridgepaynetwork.payguardian" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+
+  <name>cordova-plugin-payguardian</name>
+  <description>Pluging to use PayGuardian</description>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+
+  <js-module src="www/PayGuardianPlugin.js" name="PayGuardianPlugin">
+    <clobbers target="window.plugins.payGuardian" />
+  </js-module>
+
+  <platform name="ios">
+    <config-file parent="/*" target="config.xml">
+      <feature name="PayGuardianPlugin">
+        <param name="ios-package" value="PayGuardianPlugin" />
+      </feature>
+    </config-file>
+    <framework src="src/ios/Ono.framework" custom="true" />
+    <framework src="src/ios/PayGuardian_SDK.framework" custom="true" />
+    <framework src="src/ios/RBA_SDK.framework" custom="true" />
+    <source-file src="src/ios/PayGuardianPlugin.h" />
+    <source-file src="src/ios/PayGuardianPlugin.m" />
+    <source-file src="src/ios/PayGuardianPlugin_JS.h" />
+    <source-file src="src/ios/PayGuardianPlugin_JS.m" />
+    <source-file src="src/ios/PayGuardianPlugin_Communication.h" />
+    <source-file src="src/ios/PayGuardianPlugin_Communication.m" />
+    <framework src="CoreBluetooth.framework" />
+    <framework src="ExternalAccessory.framework" />
+  </platform>
+
+</plugin>
